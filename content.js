@@ -31,12 +31,7 @@
      * Sanitize a string to be used as a valid filename.
      */
     function sanitizeFilename(title) {
-        const invalidChars = ['\\', '/', ':', '*', '?', '"', '<', '>', '|'];
-        let sanitizedTitle = title;
-        for (const char of invalidChars) {
-            sanitizedTitle = sanitizedTitle.split(char).join('_');
-        }
-        return sanitizedTitle.trim() || 'gemini-chat';
+        return title.replace(/[\\\/:\*\?"<>|]/g, '_').trim() || 'gemini-chat';
     }
 
     /**
