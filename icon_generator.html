@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,41 +62,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎨 Gemini Markdown Downloader 图标生成器</h1>
+        <h1>🎨 Gemini Markdown Downloader Icon Generator</h1>
         
         <div class="info">
-            <h3>设计说明：</h3>
+            <h3>Design Description:</h3>
             <ul>
-                <li>📄 文档形状背景 - 代表 Markdown 文件</li>
-                <li>🔤 大号 "M" 字母 - Markdown 标识</li>
-                <li>⬇️ 下载箭头 - 下载功能</li>
-                <li>✨ 星星装饰 - 呼应 Gemini 双子星概念</li>
-                <li>🎨 现代扁平化设计风格</li>
+                <li>📄 Document Shape Background - Represents Markdown file</li>
+                <li>🔤 Large "M" Letter - Markdown identifier</li>
+                <li>⬇️ Download Arrow - Download function</li>
+                <li>✨ Star Decoration - Echoes Gemini concept</li>
+                <li>🎨 Modern Flat Design Style</li>
             </ul>
         </div>
 
         <div class="canvas-container">
             <div class="canvas-item">
-                <h3>48x48 图标</h3>
+                <h3>48x48 Icon</h3>
                 <canvas id="icon48" width="48" height="48"></canvas>
                 <br>
-                <button class="download-btn" onclick="downloadIcon('icon48', 'icon48.png')">下载 48x48</button>
+                <button class="download-btn" onclick="downloadIcon('icon48', 'icon48.png')">Download 48x48</button>
             </div>
             
             <div class="canvas-item">
-                <h3>128x128 图标</h3>
+                <h3>128x128 Icon</h3>
                 <canvas id="icon128" width="128" height="128"></canvas>
                 <br>
-                <button class="download-btn" onclick="downloadIcon('icon128', 'icon128.png')">下载 128x128</button>
+                <button class="download-btn" onclick="downloadIcon('icon128', 'icon128.png')">Download 128x128</button>
             </div>
         </div>
 
         <div class="info">
-            <h3>使用说明：</h3>
+            <h3>Usage Instructions:</h3>
             <ol>
-                <li>点击对应的下载按钮保存图标</li>
-                <li>将下载的文件替换项目中的 icon48.png 和 icon128.png</li>
-                <li>重新加载扩展即可看到新图标</li>
+                <li>Click the corresponding download button to save the icon</li>
+                <li>Replace icon48.png and icon128.png in the project with the downloaded files</li>
+                <li>Reload the extension to see the new icon</li>
             </ol>
         </div>
     </div>
@@ -104,49 +104,49 @@
     <script>
         function drawIcon(canvas, size) {
             const ctx = canvas.getContext('2d');
-            const scale = size / 48; // 以48为基准缩放
+            const scale = size / 48; // Scale based on 48
             
-            // 清空画布
+            // Clear canvas
             ctx.clearRect(0, 0, size, size);
             
-            // 创建渐变背景
+            // Create gradient background
             const gradient = ctx.createLinearGradient(0, 0, 0, size);
             gradient.addColorStop(0, '#f8fafc');
             gradient.addColorStop(1, '#e2e8f0');
             
-            // 绘制圆角矩形背景
+            // Draw rounded rectangle background
             ctx.fillStyle = gradient;
             ctx.beginPath();
             ctx.roundRect(2 * scale, 2 * scale, (size - 4) * scale, (size - 4) * scale, 8 * scale);
             ctx.fill();
             
-            // 绘制文档边框
+            // Draw document border
             ctx.strokeStyle = '#cbd5e1';
             ctx.lineWidth = 1 * scale;
             ctx.stroke();
             
-            // 绘制主要的 "M" 字母
+            // Draw main "M" letter
             ctx.fillStyle = '#2563eb';
             ctx.font = `bold ${24 * scale}px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText('M', size / 2, size / 2 - 2 * scale);
             
-            // 绘制下载箭头
+            // Draw download arrow
             ctx.fillStyle = '#f59e0b';
             ctx.beginPath();
             const arrowSize = 8 * scale;
             const arrowX = size - 12 * scale;
             const arrowY = size - 12 * scale;
             
-            // 箭头主体
+            // Arrow body
             ctx.moveTo(arrowX, arrowY - arrowSize / 2);
             ctx.lineTo(arrowX, arrowY + arrowSize / 2);
             ctx.lineTo(arrowX + arrowSize / 2, arrowY);
             ctx.closePath();
             ctx.fill();
             
-            // 箭头线条
+            // Arrow lines
             ctx.strokeStyle = '#f59e0b';
             ctx.lineWidth = 2 * scale;
             ctx.beginPath();
@@ -154,7 +154,7 @@
             ctx.lineTo(arrowX, arrowY);
             ctx.stroke();
             
-            // 绘制装饰星星
+            // Draw decorative stars
             drawStar(ctx, 8 * scale, 8 * scale, 2 * scale, '#fbbf24');
             drawStar(ctx, size - 8 * scale, 8 * scale, 1.5 * scale, '#fbbf24');
             drawStar(ctx, 8 * scale, size - 20 * scale, 1.5 * scale, '#fbbf24');
@@ -190,7 +190,7 @@
             link.click();
         }
         
-        // 初始化绘制图标
+        // Initialize icon drawing
         window.onload = function() {
             drawIcon(document.getElementById('icon48'), 48);
             drawIcon(document.getElementById('icon128'), 128);
